@@ -2,10 +2,454 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link>
+    <title>Prosha</title>
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
+<h3>1.1	Оценка конкурентоспособности проекта в сравнении с аналогом</h3>
+<table class="ball-index">
+    <tr>
+        <th rowspan="2">Показатели качества</th>
+        <th rowspan="2">Коэффициент весомости, Вj</th>
+        <th colspan="2">Проект</th>
+        <th colspan="2">Аналог</th>
+    </tr>
+    <tr>
+        <th>Xj</th>
+        <th>Вj* Xj</th>
+        <th>Xj</th>
+        <th>Вj* Xj</th>
+    </tr>
+    <tr>
+        <td>1. Удобство работы (пользовательский интерфейс)</td>
+        <td class="ball-coef">0.14</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>2.Новизна (соответствие современным требованиям)</td>
+        <td  class="ball-coef">0.1</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>3.Соответствие профилю деятельности заказчика</td>
+        <td  class="ball-coef">0.2</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>4.Ресурсная эффективность</td>
+        <td  class="ball-coef">0.05</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>5. Надежность (защита данных)</td>
+        <td  class="ball-coef">0.13</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>6.Скорость доступа к данным</td>
+        <td  class="ball-coef">0.1</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>7.Гибкость настройки</td>
+        <td  class="ball-coef">0.06</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>8.Обучаемость персонала</td>
+        <td  class="ball-coef">0.13</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td>9.Соотношение стоимость/возможности</td>
+        <td  class="ball-coef">0.09</td>
+        <td><input type="text" class="ball-proj-xj"></td>
+        <td class="ball-proj-answer"></td>
+        <td><input type="text" class="ball-anal-xj"></td>
+        <td class="ball-anal-answer"></td>
+    </tr>
+    <tr>
+        <td colspan="2">Обобщенный показатель качества</td>
+        <td>JЭТУ1=</td>
+        <td class="ball-proj-sum"></td>
+        <td>JЭТУ2=</td>
+        <td class="ball-analog-sum"></td>
+    </tr>
+</table>
+<div class="coef-tech"></div>
+<button class="ball-btn">Рассчитать</button>
+<h3>1.2	Планирование комплекса работ по разработке темы и оценка трудоемкости</h3>
+<table class="intensity">
+    <tr>
+        <th rowspan="2">Содержание работ</th>
+        <th rowspan="2">Исполнители</th>
+        <th rowspan="2">Длительность, дни</th>
+        <th colspan="2">Загрузка</th>
+    </tr>
+    <tr>
+        <th>Дни</th>
+        <th>%</th>
+    </tr>
+    <tbody class="phase1">
+        <tr>
+            <th colspan="5">1. Подготовка процесса разработки и анализ требований</th>
+        </tr>
+        <tr>
+            <th colspan="5">1.1 Исследование и обоснование разработки</th>
+        </tr>
 
+        <tr>
+            <td rowspan="2">1.1.1 Постановка задачи</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.1.2 Сбор исходных данных</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <th colspan="5">1.2 Поиск аналогов и прототипов</th>
+        </tr>
+        <tr>
+            <td rowspan="2">1.2.1 Анализ существующих методов решения задачи и программных средств</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.2.2 Обоснование принципиальной необходимости разработки</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.3.1 Определение и анализ требований к проектируемой программе</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.3.2 Определение структуры входных и выходных данных</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.3.3 Выбор технических и программных средств реализации</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">1.3.4 Согласование и утверждение технического задания</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Итого по этапу 1</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-sum-allday" disabled></td>
+            <td ><input type="text" class="intensity-sum-leaderday" disabled></td>
+            <td  class="intensity-percent-sumleader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-sum-progrday" disabled></td>
+            <td class="intensity-sumprogr-percent"></td>
+        </tr>
+    </tbody>
+    <tbody class="phase2">
+        <tr>
+            <td colspan="5">2. Проектирование</td>
+        </tr>
+        <tr>
+            <td rowspan="2">2.1 Проектирование программной архитектуры</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text"class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">2.2 Техническое проектирование компонентов программы</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Итого по этапу 2</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-sum-allday" disabled></td>
+            <td ><input type="text" class="intensity-sum-leaderday" disabled></td>
+            <td  class="intensity-percent-sumleader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-sum-progrday" disabled></td>
+            <td class="intensity-sumprogr-percent"></td>
+        </tr>
+    </tbody>
+    <tbody class="phase3">
+        <tr>
+            <td colspan="5">3. Программирование и тестирование программных модулей</td>
+        </tr>
+        <tr>
+            <td rowspan="2">3.1 Программирование модулей в выбранной среде программирования</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">3.2 Тестирование программных модулей</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">3.3 Сборка и испытание программы</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">3.4 Анализ результатов испытаний</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Итого по этапу 3</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-sum-allday" disabled></td>
+            <td ><input type="text" class="intensity-sum-leaderday" disabled></td>
+            <td  class="intensity-percent-sumleader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-sum-progrday" disabled></td>
+            <td class="intensity-sumprogr-percent"></td>
+        </tr>
+    </tbody>
+    <tbody class="phase4">
+        <tr>
+            <td colspan="5">4. Оформление рабочей документации</td>
+        </tr>
+        <tr>
+            <td rowspan="2">4.1 Проведение расчетов показателей безопасности жизнедеятельности</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">4.2 Проведение экономических расчетов</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday" ></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"</td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">4.3 Оформление пояснительной записки</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allday"></td>
+            <td ><input type="text" class="intensity-leaderday"></td>
+            <td  class="intensity-percent-leader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-progrday"></td>
+            <td class="intensity-progr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Итого по этапу 4</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-sum-allday" disabled></td>
+            <td ><input type="text" class="intensity-sum-leaderday" disabled></td>
+            <td  class="intensity-percent-sumleader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-sum-progrday" disabled></td>
+            <td class="intensity-sumprogr-percent"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Итого по проекту</td>
+            <td>Руководитель</td>
+            <td rowspan="2"><input type="text" class="intensity-allsum-allday" disabled value="0"></td>
+            <td ><input type="text" class="intensity-allsum-leaderday" disabled value="0"></td>
+            <td  class="intensity-percent-allsumleader"></td>
+        </tr>
+        <tr >
+            <td class="cell_default">Программист</td>
+            <td ><input type="text" class="intensity-allsum-progrday" disabled value="0"></td>
+            <td class="intensity-allsumprogr-percent"></td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="intensity-btn">Рассчитать</button>
+<h3>Таблица 1.3 - Календарный график выполнения работ</h3>
+<table class="calendar">
+    <tr>
+        <th rowspan="2">Содержание работы</th>
+        <th rowspan="2">Исполнители</th>
+        <th rowspan="2">Длительность, дни</th>
+        <th colspan="2">График работ</th>
+    </tr>
+    <tr>
+        <td>Начало</td>
+        <td>Конец</td>
+    </tr>
+    <tr>
+        <td rowspan="2">1 Постановка задачи</td>
+        <td>Руководитель</td>
+        <td><input type="text" class="day-leader" value="1"></td>
+        <td><input type="text" class="date-leader" value="01.09.2017"></td>
+        <td><input type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Программист</td>
+        <td><input type="text" class="day-progr" value="3" ></td>
+        <td><input type="text" class="date-progr" value="01.09.2017"></td>
+        <td><input type="text" disabled></td>
+    </tr>
+    <tr>
+        <td rowspan="2">2 Сбор исходных данных</td>
+        <td>Руководитель</td>
+        <td><input type="text" class="day-leader" disabled></td>
+        <td><input type="text" class="date-leader" disabled></td>
+        <td><input type="text" disabled></td>
+    </tr>
+    <tr>
+        <td>Программист</td>
+        <td><input type="text" class="day-progr" disabled></td>
+        <td><input type="text" class="date-progr" disabled></td>
+        <td><input type="text" disabled></td>
+    </tr>
+</table>
+<button class="calendar-btn">Вычислить</button>
 </body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/scripts.js"></script>
 </html>
