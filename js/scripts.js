@@ -62,7 +62,7 @@ $('.intensity-btn').click(function () {
     outputPercentNumber(persentAllSumLeader,persentAllSumAllDay,persentAllSumOutputLeader);
     outputPercentNumber(persentAllSumProgr,persentAllSumAllDay,persentAllSumOutputProgr);
     addDayCalendar();
-    addWorkDayPay()
+    addWorkDayPay();
 
     addTimeMachine();
 });
@@ -312,7 +312,8 @@ $('.matherial-btn').click(function () {
     $('.matherial-allsum').html(allSum);
 
     pasteInto('.matherial-allsum', '.z-matherialsum',1);
-})
+});
+
 function sumArray(_arr){
     var sum = 0;
     for( var i = 0; i < _arr.length; i++){
@@ -323,7 +324,7 @@ function sumArray(_arr){
 
 function pasteInto(_classOut, _classInto,n) {
     var out = parseFloat($(_classOut).text())*n;
-    var into = $(_classInto).text(out);
+    $(_classInto).text(out);
 }
 
 function addTimeMachine() {
@@ -438,3 +439,195 @@ $('.cap-btn').click(function () {
     $('.capSum').append(sum);
 });
 
+$('.addInputExp').click(function () {
+    addInput('.exp .exp-copy', '.exp-last');
+});
+
+$('.exp-btn').click(function () {
+    var tmpAvg = 0;
+
+    var oklad = $('.exp-oklad');
+    var avg = $('.exp-avgday');
+    var timeExpend = $('.exp-timeepxend');
+    var sumAll = $('.exp-sum');
+    var tmpSum = 0;
+    var tmpSumAll = 0;
+
+    for( var i = 0; i< oklad.length; i++){
+        tmpAvg = avgSalary(parseFloat(oklad[i].value),21);
+        avg[i].innerHTML = tmpAvg;
+        tmpSum = tmpAvg * parseFloat(timeExpend[i].value) * 1.301 * 1.4;
+        sumAll[i].innerHTML = tmpSum.toFixed(2);
+        tmpSumAll+=tmpSum;
+    }
+    $('.avg-allsum').text(tmpSumAll.toFixed(2));
+
+    $('.year-salary').text(tmpSumAll.toFixed(2));
+});
+
+function  avgSalary(salary,day) {
+    return (salary/day).toFixed(2);
+}
+
+$('.expalanog-btn').click(function () {
+    var tmpAvg = 0;
+
+    var oklad = $('.expanalog-oklad');
+    var avg = $('.expanalog-avgday');
+    var timeExpend = $('.expanalog-timeepxend');
+    var sumAll = $('.expanalog-sum');
+    var tmpSum = 0;
+    var tmpSumAll = 0;
+
+    for( var i = 0; i< oklad.length; i++){
+        tmpAvg = avgSalary(parseFloat(oklad[i].value),21);
+        avg[i].innerHTML = tmpAvg;
+        tmpSum = tmpAvg * parseFloat(timeExpend[i].value) * 1.301 * 1.4;
+        sumAll[i].innerHTML = tmpSum.toFixed(2);
+        tmpSumAll+=tmpSum;
+    }
+    $('.avganalog-allsum').text(tmpSumAll.toFixed(2));
+
+    $('.yearanalog-salary').text(tmpSumAll.toFixed(2));
+});
+
+$('.addInputExpAnalog').click(function () {
+    addInput('.exp-analog .exp-copy', '.expanalog-last');
+});
+
+
+$('.addInputDepreciation').click(function () {
+   addInput('.depreciation .depreciation-copy', '.depreciation-last');
+});
+
+$('.depreciation-btn').click(function () {
+    var cost = $('.depreciation-cost');
+    var timeProjArr = $('.exp-timeepxend');
+    var timeAnalogArr = $('.expanalog-timeepxend');
+    var norm = $('.depreciation-norm');
+    var amount = $('.depreciation-amount');
+    var ours = $('.depreciation-oursday');
+    var normWork = $('.depreciation-workday');
+
+    var sumDepr;
+    var tmpSumProj = 0;
+    var tmpSumAnal = 0;
+
+    var timeProj = timeWork(timeProjArr);
+
+    var timeAnalog = timeWork(timeAnalogArr);
+
+    for( var i = 0; i < cost.length; i++){
+        tmpSumProj+= cost[i].value * timeProj * norm[i].value * amount[i].value;
+        tmpSumAnal+= cost[i].value * timeAnalog * norm[i].value * amount[i].value;
+    }
+
+
+    var sumDeprProj = tmpSumProj/(normWork.val()*ours.val());
+    var sumDeprAnalog = tmpSumAnal/(normWork.val()*ours.val());
+
+    var out = $('.depreciation-result');
+
+    out.append('Сумма амортизационных отчислений для проекта составит = '  + sumDeprProj.toFixed(2));
+
+    out.append(' Сумма амортизационных отчислений для аналога составит = '  + sumDeprAnalog.toFixed(2));
+
+    $('.year-depreciation').text(sumDeprProj.toFixed(2));
+    $('.yearanalog-depreciation').text(sumDeprAnalog.toFixed(2));
+
+    powerStrong();
+});
+
+function timeWork(a) {
+    var ours = $('.depreciation-oursday').val();
+
+    var sumTime = sumArrayInput(a);
+
+    return sumTime * ours;
+}
+
+function powerStrong() {
+    var N = $('.depreciation-power');
+    var amount = $('.depreciation-amount');
+    var T = $('.depreciation-tariff').val();
+    var g = $('.depreciation-usekoef');
+    var timeProjArr = $('.exp-timeepxend');
+    var timeAnalogArr = $('.expanalog-timeepxend');
+
+    var timeProj = timeWork(timeProjArr);
+    var timeAnalog = timeWork(timeAnalogArr);
+
+    var tmpSumProj = 0;
+    var tmpSumAnalog = 0;
+
+    for( var i = 0; i < N.length; i++){
+        tmpSumProj += N[i].value * amount[i].value * g[i].value * T * timeProj;
+        tmpSumAnalog += N[i].value * amount[i].value * g[i].value * T * timeAnalog;
+    }
+
+    var result = $('.depreciation-result');
+
+    result.append('<p>Затраты на силовую энергию для проекта составят Зэ = ' + tmpSumProj.toFixed(2) + '</p>');
+    result.append('<p>Затраты на силовую энергию для аналога составят Зэ = ' + tmpSumAnalog.toFixed(2) + '</p>');
+
+    $('.year-energy').text(tmpSumProj.toFixed(2));
+    $('.yearanalog-energy').text(tmpSumAnalog.toFixed(2));
+
+}
+
+$('.repairs-btn').click(function () {
+   var cost = $('.depreciation-cost');
+   var norm = $('.repairs-norm').val();
+   var ours = $('.depreciation-oursday').val();
+   var normWork = $('.depreciation-workday').val();
+
+   var timeProjArr = $('.exp-timeepxend');
+   var timeAnalogArr = $('.expanalog-timeepxend');
+   var timeProj = timeWork(timeProjArr);
+   var timeAnalog = timeWork(timeAnalogArr);
+
+   var tmpSumProj = 0;
+   var tmpSumAnal = 0;
+   var sumCost = 0;
+
+   for( var i = 0; i < cost.length; i++){
+       sumCost+=cost[i].value;
+       tmpSumProj += (norm * cost[i].value * timeProj)/(normWork*ours);
+       tmpSumAnal += (norm * cost[i].value * timeAnalog)/(normWork*ours);
+   }
+
+   var persRep = 0.01*sumCost;
+   var result = $('.repairs-result');
+
+   result.append('<p>Затраты на текущий ремонт оборудования для проекта Зрем1 =' + tmpSumProj.toFixed(2) + '</p>');
+   result.append('<p>Затраты на текущий ремонт оборудования для аналога Зрем2 =' + tmpSumAnal.toFixed(2) + '</p>');
+   result.append('<p>Затраты на материалы, потребляемые в течение года, составляют 1 % от балансовой стоимости основного оборудования и равны '+ persRep +' для проекта и аналога.</p>')
+
+   $('.year-repairs').text(tmpSumProj.toFixed(2));
+   $('.yearanalog-repairs').text(tmpSumAnal.toFixed(2));
+   $('.year-matherial').text(persRep);
+   $('.yearanalog-matherial').text(persRep);
+
+   var yearNakl = nakl(parseFloat($('.year-salary').text()), parseFloat($('.year-depreciation').text()), parseFloat($('.year-energy').text()), parseFloat($('.year-repairs').text()), parseFloat($('.year-matherial').text()));
+   $('.year-nakl').text(yearNakl);
+
+   var yearAnalogNakl = nakl(parseFloat($('.yearanalog-salary').text()), parseFloat($('.yearanalog-depreciation').text()), parseFloat($('.yearanalog-energy').text()), parseFloat($('.yearanalog-repairs').text()), parseFloat($('.yearanalog-matherial').text()));
+   $('.yearanalog-nakl').text(yearAnalogNakl);
+
+   sumSpends();
+});
+
+function nakl(salary,deprec,energy,repairs,matherial) {
+    var res = (salary + deprec + energy + repairs + matherial) * 0.2;
+
+    return res.toFixed(2);
+}
+
+function sumSpends() {
+    var sumProj = parseFloat($('.year-salary').text()) + parseFloat($('.year-depreciation').text()) + parseFloat($('.year-energy').text()) + parseFloat($('.year-repairs').text()) + parseFloat($('.year-matherial').text()) + parseFloat($('.year-nakl').text());
+
+    var sumAnalog = parseFloat($('.yearanalog-salary').text()) + parseFloat($('.yearanalog-depreciation').text()) + parseFloat($('.yearanalog-energy').text()) + parseFloat($('.yearanalog-repairs').text()) + parseFloat($('.yearanalog-matherial').text()) + parseFloat($('.yearanalog-nakl').text());
+
+    $('.year-sum').text(sumProj.toFixed(2));
+    $('.yearanalog-sum').text(sumAnalog.toFixed(2));
+}

@@ -762,6 +762,128 @@
 <h3 class="capSum"> </h3>
 <button class="cap-btn">Вычислить</button>
 
+<h2>1.4	Расчет эксплуатационных затрат</h2>
+Таблица 1.7 – Данные по заработной плате специалистов (для проекта)
+<table class="exp">
+    <tr>
+        <th>Должность</th>
+        <th>Должностной оклад, грн</th>
+        <th>Средняя дневная ставка, грн./день</th>
+        <th>Затраты времени на эксплуатацию, человеко-дней</th>
+        <th>Фонд заработной платы, грн.</th>
+    </tr>
+    <tr class="exp-copy">
+        <td><input type="text"></td>
+        <td><input type="text" class="exp-oklad"></td>
+        <td class="exp-avgday"></td>
+        <td><input type="text" class="exp-timeepxend"></td>
+        <td class="exp-sum"></td>
+    </tr>
+    <tr class="exp-last">
+        <td colspan="4">Итого</td>
+        <td class="avg-allsum"></td>
+    </tr>
+</table>
+<p><button class="addInputExp">Добавить поле</button></p>
+<button class="exp-btn">Вычислить</button>
+<p>Таблица 1.8 – Данные по заработной плате специалистов (для продукта-аналога)</p>
+<table class="exp-analog">
+    <tr>
+        <th>Должность</th>
+        <th>Должностной оклад, грн</th>
+        <th>Средняя дневная ставка, грн./день</th>
+        <th>Затраты времени на эксплуатацию, человеко-дней</th>
+        <th>Фонд заработной платы, грн.</th>
+    </tr>
+    <tr class="exp-copy">
+        <td><input type="text"></td>
+        <td><input type="text" class="expanalog-oklad"></td>
+        <td class="expanalog-avgday"></td>
+        <td><input type="text" class="expanalog-timeepxend"></td>
+        <td class="expanalog-sum"></td>
+    </tr>
+    <tr class="expanalog-last">
+        <td colspan="4">Итого</td>
+        <td class="avganalog-allsum"></td>
+    </tr>
+</table>
+<p><button class="addInputExpAnalog">Добавить поле</button></p>
+<button class="expalanog-btn">Вычислить</button>
+<h3>Сумма амортизационных отчислений </h3>
+<table class="depreciation">
+    <tr>
+        <th>Название</th>
+        <th>Cbj - балансовая стоимость j-гo вида оборудования, грн.;</th>
+        <th>aj	– норма годовых амортизационных отчислений для j-гo вида оборудования;</th>
+        <th>gj – количество единиц оборудования j-гo вида.</th>
+        <th>Nj – установленная мощность j-го вида технических средств, кВт;</th>
+        <th>gj – коэффициент использования установленной мощности оборудования;</th>
+    </tr>
+    <tr class="depreciation-copy">
+        <td><input type="text"></td>
+        <td><input type="text" class="depreciation-cost"></td>
+        <td><input type="text" class="depreciation-norm"></td>
+        <td><input type="text" class="depreciation-amount"></td>
+        <td><input type="text" class="depreciation-power"></td>
+        <td><input type="text" class="depreciation-usekoef"></td>
+    </tr>
+    <tr class="depreciation-last">
+    </tr>
+</table>
+<p>Количество рабочих дней в году <input type="text" class="depreciation-workday"></p>
+<p>Норматив среднесуточной загрузки, час./день <input type="text" class="depreciation-oursday"></p>
+<p>Тэ – тариф на электроэнергию, грн./кВт ч. <input type="text" class="depreciation-tariff"></p>
+<p><button class="addInputDepreciation">Добавить поле</button></p>
+<button class="depreciation-btn">Вычислить</button>
+<div class="depreciation-result"></div>
+<h3>Затраты на текущий ремонт оборудования</h3>
+<p>Cbi – норматив затрат на ремонт <input type="text" class="repairs-norm"></p>
+<button class="repairs-btn">Вычислить</button>
+<div class="repairs-result"></div>
+<h3>Таблица 1.9 – Годовые эксплуатационные затраты</h3>
+<table class="year-spends">
+    <tr>
+        <th>Статьи затрат</th>
+        <th>Затраты на проект, грн.</th>
+        <th>Затраты на аналог,</th>
+    </tr>
+    <tr>
+        <td>Основная и дополнительная зарплата с отчислениями</td>
+        <td class="year-salary"></td>
+        <td class="yearanalog-salary"></td>
+    </tr>
+    <tr>
+        <td>Амортизационные отчисления</td>
+        <td class="year-depreciation"></td>
+        <td class="yearanalog-depreciation"></td>
+    </tr>
+    <tr>
+        <td>Затраты на электроэнергию</td>
+        <td class="year-energy"></td>
+        <td class="yearanalog-energy"></td>
+    </tr>
+    <tr>
+        <td>Затраты на текущий ремонт</td>
+        <td class="year-repairs"></td>
+        <td class="yearanalog-repairs"></td>
+    </tr>
+    <tr>
+        <td>Затраты на материалы</td>
+        <td class="year-matherial"></td>
+        <td class="yearanalog-matherial"></td>
+    </tr>
+    <tr>
+        <td>Накладные расходы</td>
+        <td class="year-nakl"></td>
+        <td class="yearanalog-nakl"></td>
+    </tr>
+    <tr>
+        <td>Итого</td>
+        <td class="year-sum"></td>
+        <td class="yearanalog-sum"></td>
+    </tr>
+</table>
+<h3>1.5	Расчет показателей экономической эффективности</h3>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/scripts.js"></script>
