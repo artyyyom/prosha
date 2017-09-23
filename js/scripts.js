@@ -414,7 +414,6 @@ function sumArrayInput(_array) {
     for(var i = 0; i<_array.length; i++){
         sum+=parseFloat(_array[i].value);
     }
-
     return sum.toFixed(2);
 }
 
@@ -433,8 +432,6 @@ $('.cap-btn').click(function () {
     var k0Sum = k0();
 
     var sum = k0P + k0Sum;
-
-    sum = sum.toFixed(2);
 
     $('.capSum').append(sum);
 });
@@ -615,6 +612,8 @@ $('.repairs-btn').click(function () {
    $('.yearanalog-nakl').text(yearAnalogNakl);
 
    sumSpends();
+
+   econEffect();
 });
 
 function nakl(salary,deprec,energy,repairs,matherial) {
@@ -631,3 +630,72 @@ function sumSpends() {
     $('.year-sum').text(sumProj.toFixed(2));
     $('.yearanalog-sum').text(sumAnalog.toFixed(2));
 }
+
+$('.spendsanalog-btn').click(function () {
+   var arr = $('.spends-analog p input');
+
+   var sum = sumArrayInput(arr);
+
+   $('.spendsanalog-result').html(sum);
+});
+
+function econEffect() {
+   var costAnalog = $('.year-sum').text();
+   $('.econ-cost').text(costAnalog);
+
+   var cost = $('.yearanalog-sum').text();
+   $('.econanalog-cost').text(cost);
+
+   var sumVnedrAnalog = $('.capSum').text();
+   $('.econanalog-vnedr').text(sumVnedrAnalog);
+
+   var sumVnedr = $('.spendsanalog-result').text();
+   $('.econ-vnedr').text(sumVnedr);
+
+}
+
+$('.econ-btn').click(function () {
+    var costAnalog = parseFloat($('.yearanalog-sum').text());
+    var cost = parseFloat($('.year-sum').text());
+
+    var sumVnedrAnalog = parseFloat($('.spendsanalog-result').text());
+    var sumVnedr = parseFloat($('.capSum').text());
+
+    var sumAnalog = costAnalog + 0.33 * sumVnedrAnalog;
+
+    var sum = cost + 0.33 * sumVnedr;
+
+    $('.econanalog-work').text(sumAnalog);
+    $('.econ-work').text(sum);
+
+    var sumEffect = sumAnalog * 1.6 - sum;
+
+    $('.econ-sum').text(sumEffect);
+
+    var result = $('.econ-result');
+
+    var Tok = sumVnedr/sumEffect;
+
+    var Ef = 1/Tok;
+
+    result.append('<p>Затраты на единицу работ по аналогу: З1 = ' + sumAnalog.toFixed(2) +'</p>');
+    result.append('<p>Затраты на единицу работ по проекту: З2 = ' + sum.toFixed(2) +'</p>');
+    result.append('<p>Экономический эффект от использования разрабатываемой системы: Э = '+ sumEffect. toFixed(2) +' </p>');
+    result.append('<p>Необходимо рассчитать срок окупаемости затрат Tok = '+ Tok +'</p>');
+    result.append('<p>Фактический коэффициент экономической эффективности разработки '+ Ef +'</p>');
+    if(Ef>0.33)
+        result.append('<p>Фактический коэффициент экономической эффективности разработки получился больше, чем нормативный, поэтому разработка и внедрение разрабатываемого продукта является эффективной</p>');
+    else if(Ef < 0.33)
+        result.append('Фактический коэффициент экономической эффективности разработки получился меньше, чем нормативный, поэтому разработка и внедрение разрабатываемого продукта является неэффективной');
+    else
+        result.append('Фактический коэффициент экономической эффективности разработки получился равен 0, поэтому разработка и внедрение разрабатываемого продукта является неэффективной');
+
+    $('.result .spendsdevelop').text(sumVnedr);
+    $('.result .spends').text(cost);
+    $('.result .effect').text(sumEffect);
+    $('.result .year').text(Tok);
+    $('.result .coefEconom').text(Ef);
+
+
+
+});

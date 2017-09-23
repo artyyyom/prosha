@@ -102,7 +102,7 @@
     </tr>
 </table>
 <div class="coef-tech"></div>
-<button class="ball-btn">Рассчитать</button>
+<a class="ball-btn">Рассчитать</a>
 <h3>1.2	Планирование комплекса работ по разработке темы и оценка трудоемкости</h3>
 <table class="intensity">
     <tr>
@@ -408,7 +408,7 @@
     </tbody>
 </table>
 
-<button class="intensity-btn">Рассчитать</button>
+<a class="intensity-btn">Рассчитать</a>
 <h3>Таблица 1.3 - Календарный график выполнения работ</h3>
 <table class="calendar">
     <tr>
@@ -643,7 +643,7 @@
         <td><input type="text" class="lastday-progr" disabled></td>
     </tr>
 </table>
-<button class="calendar-btn">Вычислить</button>
+<a class="calendar-btn">Вычислить</a>
 <h2>1.3	Расчет затрат на разработку проекта</h2>
 <h3>Таблица 1.4 – Основная заработная плата разработчиков</h3>
 <table class="pay">
@@ -673,7 +673,7 @@
         <td class="payall-sum"></td>
     </tr>
 </table>
-<button class="call-btn">Вычислить</button>
+<a class="call-btn">Вычислить</a>
 <h3>Таблица 1.5 - Затраты на материалы</h3>
 <table class="matherial">
     <tr>
@@ -696,8 +696,8 @@
 
     </tr>
 </table>
-<p><button class="addInput">Добавить поле</button></p>
-<button class="matherial-btn">Вычислить</button>
+<p><a class="addInput">Добавить поле</a></p>
+<a class="matherial-btn">Вычислить</a>
 <h3>Таблица 1.6 – Затраты на разработку</h3>
 <table class="z">
     <tr>
@@ -733,7 +733,7 @@
         <td class="z-allsum"></td>
     </tr>
 </table>
-<button class="z-btn">Вычислить</button>
+<a class="z-btn">Вычислить</a>
 <table class="spends">
     <tr>
         <th >Название</th>
@@ -755,13 +755,20 @@
 
     </tr>
 </table>
-<p><button class="addInputSpends">Добавить поле</button></p>
-<button class="spends-btn">Вычислить</button>
+<p><a class="addInputSpends">Добавить поле</a></p>
+<a class="spends-btn">Вычислить</a>
 
 <h2>Капитальные вложения, связанные с автоматизацией обработки информации</h2>
 <h3 class="capSum"> </h3>
-<button class="cap-btn">Вычислить</button>
-
+<a class="cap-btn">Вычислить</a>
+<div class="spends-analog">
+    <h2>Суммарные затраты, связанные с внедрением аналога складываются изследующих затрат:</h2>
+    <p> - затраты на приобретение программного продукта<input type="text"></p>
+    <p> - затраты по оплате услуг на установку и сопровождение продукта<input type="text"></p>
+    <p> - затраты на основное и вспомогательное оборудование<input type="text"></p>
+    <p>Итого суммарные затраты, связанные с внедрением аналога составят <span class="spendsanalog-result"></span> </p>
+<a class="spendsanalog-btn">Вычислить</a>
+</div>
 <h2>1.4	Расчет эксплуатационных затрат</h2>
 Таблица 1.7 – Данные по заработной плате специалистов (для проекта)
 <table class="exp">
@@ -784,8 +791,8 @@
         <td class="avg-allsum"></td>
     </tr>
 </table>
-<p><button class="addInputExp">Добавить поле</button></p>
-<button class="exp-btn">Вычислить</button>
+<p><a class="addInputExp">Добавить поле</a></p>
+<a class="exp-btn">Вычислить</a>
 <p>Таблица 1.8 – Данные по заработной плате специалистов (для продукта-аналога)</p>
 <table class="exp-analog">
     <tr>
@@ -807,8 +814,8 @@
         <td class="avganalog-allsum"></td>
     </tr>
 </table>
-<p><button class="addInputExpAnalog">Добавить поле</button></p>
-<button class="expalanog-btn">Вычислить</button>
+<p><a class="addInputExpAnalog">Добавить поле</a></p>
+<a class="expalanog-btn">Вычислить</a>
 <h3>Сумма амортизационных отчислений </h3>
 <table class="depreciation">
     <tr>
@@ -833,12 +840,12 @@
 <p>Количество рабочих дней в году <input type="text" class="depreciation-workday"></p>
 <p>Норматив среднесуточной загрузки, час./день <input type="text" class="depreciation-oursday"></p>
 <p>Тэ – тариф на электроэнергию, грн./кВт ч. <input type="text" class="depreciation-tariff"></p>
-<p><button class="addInputDepreciation">Добавить поле</button></p>
-<button class="depreciation-btn">Вычислить</button>
+<p><a class="addInputDepreciation">Добавить поле</a></p>
+<a class="depreciation-btn">Вычислить</a>
 <div class="depreciation-result"></div>
 <h3>Затраты на текущий ремонт оборудования</h3>
 <p>Cbi – норматив затрат на ремонт <input type="text" class="repairs-norm"></p>
-<button class="repairs-btn">Вычислить</button>
+<a class="repairs-btn">Вычислить</a>
 <div class="repairs-result"></div>
 <h3>Таблица 1.9 – Годовые эксплуатационные затраты</h3>
 <table class="year-spends">
@@ -883,7 +890,62 @@
         <td class="yearanalog-sum"></td>
     </tr>
 </table>
-<h3>1.5	Расчет показателей экономической эффективности</h3>
+<h2>1.5	Расчет показателей экономической эффективности</h2>
+<h3>Таблица 1.10 – Экономический эффект</h3>
+<table class="econ-effect">
+    <tr>
+        <th rowspan="2">Характеристика</th>
+        <th colspan="2">Значение</th>
+    </tr>
+    <tr>
+        <td>Продукт-аналог</td>
+        <td>Разрабатываемый продукт</td>
+    </tr>
+    <tr>
+        <td>Себестоимость (текущие эксплуатационные затраты), грн.</td>
+        <td class="econanalog-cost"></td>
+        <td class="econ-cost"></td>
+    </tr>
+    <tr>
+        <td>Приведенные затраты на единицу работ, грн.</td>
+        <td class="econanalog-work"></td>
+        <td class="econ-work"></td>
+    </tr>
+    <tr>
+        <td>Экономический эффект от использования разрабатываемой системы, грн.</td>
+        <td class="econ-sum" colspan="2"></td>
+    </tr>
+</table>
+<div class="econ-result"></div>
+<a class="econ-btn">Вычислить</a>
+<h2>Таблица 1.11 – Результаты экономического обоснования проекта</h2>
+<table class="result">
+    <tr>
+        <th>Характеристика проекта</th>
+        <th>Значение</th>
+    </tr>
+    <tr>
+        <td>Затраты на разработку и внедрение проекта, грн.</td>
+        <td class="spendsDevelop"></td>
+    </tr>
+    <tr>
+        <td>Общие эксплуатационные затраты, грн.</td>
+        <td class="spends"></td>
+    </tr>
+    <tr>
+        <td>Экономический эффект, грн.</td>
+        <td class="effect"></td>
+    </tr>
+    <tr>
+        <td>Коэффициент экономической эффективности</td>
+        <td class="coefEconom"></td>
+    </tr>
+    <tr>
+        <td >Срок окупаемости, лет</td>
+        <td class="years"></td>
+    </tr>
+</table>
+<a href="">Рассчитать</a>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/scripts.js"></script>
