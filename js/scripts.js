@@ -1,4 +1,7 @@
-$('.ball-btn').click(function () {
+﻿$('.ball-btn').click(function () {
+
+    var coolAnalog = $('.cool-analog');
+    valueInput(coolAnalog,0);
 
     var coef = $('.ball-coef');
 
@@ -9,6 +12,10 @@ $('.ball-btn').click(function () {
     var answerAnalog = $('.ball-anal-answer');
 
     for(var i = 0; i < xjProj.length; i++ ){
+      /*  xjProj.eq(i).attr('value',xjProj[i].value);
+        xjAnalog.eq(i).attr('value',xjAnalog[i].value);*/
+        valueInput(xjProj,i);
+        valueInput(xjAnalog,i);
         answersProj[i].innerHTML = (parseFloat(coef[i].textContent) * parseFloat(xjProj[i].value)).toFixed(2);
         answerAnalog[i].innerHTML = (parseFloat(coef[i].textContent) * parseFloat(xjAnalog[i].value)).toFixed(2);
     }
@@ -29,6 +36,10 @@ $('.ball-btn').click(function () {
     else
         coefTechDiv.append("<p>Так как КТУ меньше 1, то разработка проекта с технической точки зрения неоправдана.</p>");
 });
+
+function valueInput(_class,i) {
+    _class.eq(i).attr('value',_class[i].value);
+}
 
 function sumProjAnalog(_array) {
     var sum = 0;
@@ -79,7 +90,12 @@ function proseccIntensity(_class) {
     var persentSumProgr = $(_class + ' .intensity-sumprogr-percent');
     var persentSumLeader = $(_class + ' .intensity-percent-sumleader');
 
+    var intensitySumLeaderDay = $(_class + ' .intensity-sum-leaderday');
+    var intensitySumProgrDay = $(_class + ' .intensity-sum-progrday');
 
+    var intensityAllSumAllDay = $('.intensity-allsum-allday');
+    var intensityAllSumLeaderDay = $('.intensity-allsum-leaderday');
+    var intensityAllSumProgrDay = $('.intensity-allsum-progrday');
 
     var sumAllDayField = $(_class + ' .intensity-sum-allday');
 
@@ -92,13 +108,20 @@ function proseccIntensity(_class) {
 
     sumAllDayField.val(sumAllDay);
 
-    $(_class + ' .intensity-sum-leaderday').val(sumLeaderDay);
-    $(_class + ' .intensity-sum-progrday').val(sumProgrDay);
+    intensitySumLeaderDay.val(sumLeaderDay);
+    intensitySumProgrDay.val(sumProgrDay);
     phaseSumAll(sumAllDay, '.intensity-allsum-allday');
     phaseSumAll(sumLeaderDay, '.intensity-allsum-leaderday');
     phaseSumAll(sumProgrDay, '.intensity-allsum-progrday');
     outputPercentNumber(sumLeaderDay, sumAllDay, persentSumLeader);
     outputPercentNumber(sumProgrDay, sumAllDay, persentSumProgr);
+
+    valueInput(sumAllDayField,0);
+    valueInput(intensitySumLeaderDay,0);
+    valueInput(intensitySumProgrDay,0);
+    valueInput(intensityAllSumAllDay,0);
+    valueInput(intensityAllSumProgrDay,0);
+    valueInput(intensityAllSumLeaderDay,0);
 
 
 
@@ -128,6 +151,9 @@ function addWorkDayPay() {
 
 function outputPercent(nameDay, allDay, nameOutput) {
         for (var i = 0; i < allDay.length; i++) {
+            valueInput(nameDay,i);
+            valueInput(allDay,i);
+            valueInput(nameOutput,i);
             nameOutput[i].innerHTML = ((parseInt(nameDay[i].value) / parseInt(allDay[i].value)) * 100).toFixed(2);
         }
 }
@@ -217,13 +243,30 @@ $('.calendar-btn').click(function () {
             dateProgrStartArr[i+1].value = tmpDate;
         }
     }
+
 });
+
+function valueCalendar() {
+    var dateLeaderStartArr = $('.date-leader');
+    var dateProgrStartArr = $('.date-progr');
+    var dateProgrLastArr = $('.lastday-progr');
+    var dateLeaderLastArr = $('.lastday-leader');
+    var dayLeader = $('.day-leader');
+    var dayProgr = $('.day-progr');
+    for( var i = 0; i<dayLeader.length; i++){
+        valueInput(dateProgrStartArr,i);
+        valueInput(dateLeaderStartArr,i);
+        valueInput(dateLeaderLastArr,i);
+        valueInput(dayLeader,i);
+        valueInput(dayProgr,i);
+        valueInput(dateProgrLastArr,i);
+    }
+}
 
 function getDateInput(_class) {
 
     var date = _class.value;
     var parts = date.split('.');
-    console.log(parts);
     return new Date(parts[2], parts[1], parts[0]);
 }
 
@@ -247,6 +290,7 @@ function formatDate(date, last) {
 }
 
 $('.call-btn').click(function () {
+    valueCalendar();
     var okladLeader = $('.oklad-leader').val();
     var okladProgr = $('.oklad-progr').val();
 
@@ -265,8 +309,12 @@ $('.call-btn').click(function () {
     pasteInto('.payall-sum', '.z-naklad', 0.6);
 
     pasteInto('.payall-sum','.z-soc', 0.4);
-    
+
     sumSoc();
+    var okladLeaderArr = $('.oklad-leader');
+    var okladProgrArr = $('.oklad-progr');
+    valueInput(okladLeaderArr,0);
+    valueInput(okladProgrArr,0);
 });
 
 function avgOzp(_classAvg, money, workDay, _classAllSum) {
@@ -299,10 +347,16 @@ $('.addInput').click(function () {
 });
 
 $('.matherial-btn').click(function () {
+    var matherialName = $('.matherial-name');
+    var matherialPieces = $('.matherial-pieces');
     var matherialAmount = $('.matherial-amount');
     var matherialPrice = $('.matherial-price');
     var matherialSum = $('.matherial-sum');
     for(var i = 0; i < matherialAmount.length; i++){
+        valueInput(matherialAmount,i);
+        valueInput(matherialPrice,i);
+        valueInput(matherialPieces,i);
+        valueInput(matherialName,i);
         matherialSum[i].innerHTML = (parseFloat(matherialAmount[i].value) * parseFloat(matherialPrice[i].value)).toFixed(2);
 
     }
@@ -350,9 +404,11 @@ $('.z-btn').click(function(){
     var timeProgr = parseFloat($('.z-timeprogr').html());
     var soc = parseFloat($('.z-soc').html());
     var naklad = parseFloat($('.z-naklad').html());
-
-    var sum = (basePay + additPay + timeProgr + soc  + naklad).toFixed(2);
+    var matherial = parseFloat($('.z-matherialsum').html());	    
+	
+    var sum = (basePay + additPay + timeProgr + soc  + naklad + matherial).toFixed(2);
     $('.z-allsum').html(sum);
+			
 });
 
 $('.addInputSpends').click(function () {
@@ -396,12 +452,16 @@ function koefY() {
 }
 
 function hardWorkT() {
+    var name = $('.spends-name');
     var hardwork = $('.spends-hardwork');
     var frequency = $('.spends-frequency');
     var n = 2;
     var t = 0;
     var sum = 0;
     for( var i = 0; i < hardwork.length; i++ ){
+        valueInput(hardwork,i);
+        valueInput(frequency,i);
+        valueInput(name,i);
         t = parseFloat(hardwork[i].value) * parseFloat(frequency[i].value);
         sum+=t;
 
@@ -412,6 +472,7 @@ function hardWorkT() {
 function sumArrayInput(_array) {
     var sum = 0;
     for(var i = 0; i<_array.length; i++){
+        valueInput(_array,i);
         sum+=parseFloat(_array[i].value);
     }
     return sum.toFixed(2);
@@ -430,8 +491,10 @@ function kP() {
 $('.cap-btn').click(function () {
     var k0P = kP();
     var k0Sum = k0();
+	alert(k0P);
+	alert(k0Sum);
 
-    var sum = k0P + k0Sum;
+    var sum = parseFloat(k0P) + parseFloat(k0Sum);
 
     $('.capSum').append(sum);
 });
@@ -443,6 +506,7 @@ $('.addInputExp').click(function () {
 $('.exp-btn').click(function () {
     var tmpAvg = 0;
 
+    var name = $('.exp-name');
     var oklad = $('.exp-oklad');
     var avg = $('.exp-avgday');
     var timeExpend = $('.exp-timeepxend');
@@ -451,6 +515,9 @@ $('.exp-btn').click(function () {
     var tmpSumAll = 0;
 
     for( var i = 0; i< oklad.length; i++){
+        valueInput(oklad,i);
+        valueInput(timeExpend,i);
+        valueInput(name,i);
         tmpAvg = avgSalary(parseFloat(oklad[i].value),21);
         avg[i].innerHTML = tmpAvg;
         tmpSum = tmpAvg * parseFloat(timeExpend[i].value) * 1.301 * 1.4;
@@ -469,6 +536,7 @@ function  avgSalary(salary,day) {
 $('.expalanog-btn').click(function () {
     var tmpAvg = 0;
 
+    var name = $('.expanalog-name');
     var oklad = $('.expanalog-oklad');
     var avg = $('.expanalog-avgday');
     var timeExpend = $('.expanalog-timeepxend');
@@ -477,6 +545,9 @@ $('.expalanog-btn').click(function () {
     var tmpSumAll = 0;
 
     for( var i = 0; i< oklad.length; i++){
+        valueInput(oklad,i);
+        valueInput(timeExpend,i);
+        valueInput(name,i);
         tmpAvg = avgSalary(parseFloat(oklad[i].value),21);
         avg[i].innerHTML = tmpAvg;
         tmpSum = tmpAvg * parseFloat(timeExpend[i].value) * 1.301 * 1.4;
@@ -498,6 +569,7 @@ $('.addInputDepreciation').click(function () {
 });
 
 $('.depreciation-btn').click(function () {
+    var name = $('.depreciation-name');
     var cost = $('.depreciation-cost');
     var timeProjArr = $('.exp-timeepxend');
     var timeAnalogArr = $('.expanalog-timeepxend');
@@ -515,6 +587,10 @@ $('.depreciation-btn').click(function () {
     var timeAnalog = timeWork(timeAnalogArr);
 
     for( var i = 0; i < cost.length; i++){
+        valueInput(cost,i);
+        valueInput(norm,i);
+        valueInput(amount,i);
+        valueInput(name,i);
         tmpSumProj+= cost[i].value * timeProj * norm[i].value * amount[i].value;
         tmpSumAnal+= cost[i].value * timeAnalog * norm[i].value * amount[i].value;
     }
@@ -551,6 +627,9 @@ function powerStrong() {
     var timeProjArr = $('.exp-timeepxend');
     var timeAnalogArr = $('.expanalog-timeepxend');
 
+    var TArr = $('.depreciation-tariff');
+    valueInput(TArr,0);
+
     var timeProj = timeWork(timeProjArr);
     var timeAnalog = timeWork(timeAnalogArr);
 
@@ -558,6 +637,8 @@ function powerStrong() {
     var tmpSumAnalog = 0;
 
     for( var i = 0; i < N.length; i++){
+        valueInput(N,i);
+        valueInput(g,i);
         tmpSumProj += N[i].value * amount[i].value * g[i].value * T * timeProj;
         tmpSumAnalog += N[i].value * amount[i].value * g[i].value * T * timeAnalog;
     }
@@ -577,6 +658,17 @@ $('.repairs-btn').click(function () {
    var norm = $('.repairs-norm').val();
    var ours = $('.depreciation-oursday').val();
    var normWork = $('.depreciation-workday').val();
+
+   var normWorkArr = $('.depreciation-workday');
+   var oursArr = $('.depreciation-oursday');
+   var normArr =  $('.repairs-norm');
+
+   valueInput(normWorkArr,0);
+   valueInput(oursArr,0);
+   valueInput(normArr,0);
+
+
+
 
    var timeProjArr = $('.exp-timeepxend');
    var timeAnalogArr = $('.expanalog-timeepxend');
@@ -690,12 +782,14 @@ $('.econ-btn').click(function () {
     else
         result.append('Фактический коэффициент экономической эффективности разработки получился равен 0, поэтому разработка и внедрение разрабатываемого продукта является неэффективной');
 
-    $('.result .spendsdevelop').text(sumVnedr);
+    $('.result .spendsDevelop').text(sumVnedr);
     $('.result .spends').text(cost);
     $('.result .effect').text(sumEffect);
-    $('.result .year').text(Tok);
+    $('.result .years').text(Tok);
     $('.result .coefEconom').text(Ef);
 
+});
 
-
+$('.export-words').click(function () {
+    alert('sd');
 });

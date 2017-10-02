@@ -1,13 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Prosha</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="shortcut icon" href="img/study.ico" type="image/x-icon">
 
 </head>
 <body>
-<h3>1.1	Оценка конкурентоспособности проекта в сравнении с аналогом</h3>
+<div id="page-content">
+<h3>Цель работы: изучить структуру технико-экономического обоснования эффективности проекта по разработке автоматизированной информационной системы на основе сравнения с аналогом и автоматизировать процесс расчета ТЭО.</h3>
+    <p>В качестве аналога взят лучший сайт о саморазвитии: <input type="text" class="cool-analog"></p>
+<h2>1.1	Оценка конкурентоспособности проекта в сравнении с аналогом</h2>
+
 <table class="ball-index">
     <tr>
         <th rowspan="2">Показатели качества</th>
@@ -24,9 +30,9 @@
     <tr>
         <td>1. Удобство работы (пользовательский интерфейс)</td>
         <td class="ball-coef">0.14</td>
-        <td><input type="text" class="ball-proj-xj"></td>
-        <td class="ball-proj-answer"></td>
-        <td><input type="text" class="ball-anal-xj"></td>
+        <td><input type="text" class="ball-proj-xj" value="0"></td>
+        <td class="ball-proj-answer" value="0"></td>
+        <td><input type="text" class="ball-anal-xj" value="0"></td>
         <td class="ball-anal-answer"></td>
     </tr>
     <tr>
@@ -103,7 +109,8 @@
 </table>
 <div class="coef-tech"></div>
 <a class="ball-btn">Рассчитать</a>
-<h3>1.2	Планирование комплекса работ по разработке темы и оценка трудоемкости</h3>
+
+<h2>1.2	Планирование комплекса работ по разработке темы и оценка трудоемкости</h2>
 <table class="intensity">
     <tr>
         <th rowspan="2">Содержание работ</th>
@@ -366,7 +373,7 @@
         </tr>
         <tr >
             <td class="cell_default">Программист</td>
-            <td ><input type="text" class="intensity-progrday"</td>
+            <td ><input type="text" class="intensity-progrday"></td>
             <td class="intensity-progr-percent"></td>
         </tr>
         <tr>
@@ -410,6 +417,7 @@
 
 <a class="intensity-btn">Рассчитать</a>
 <h3>Таблица 1.3 - Календарный график выполнения работ</h3>
+
 <table class="calendar">
     <tr>
         <th rowspan="2">Содержание работы</th>
@@ -426,13 +434,13 @@
         <td>Руководитель</td>
         <td class="td-leader"><input type="text" class="day-leader" value="1" ></td>
         <td><input type="text" class="date-leader" value="01.09.2017"></td>
-        <td><input type="text" class="lastday-leader" disabled></td>
+        <td><input type="text" class="lastday-leader"></td>
     </tr>
     <tr>
         <td>Программист</td>
         <td><input type="text" class="day-progr" value="3" ></td>
         <td><input type="text" class="date-progr" value="01.09.2017"></td>
-        <td><input type="text" class="lastday-progr" disabled></td>
+        <td><input type="text" class="lastday-progr"></td>
     </tr>
     <tr>
         <td rowspan="2">2 Сбор исходных данных</td>
@@ -643,8 +651,15 @@
         <td><input type="text" class="lastday-progr" disabled></td>
     </tr>
 </table>
+
 <a class="calendar-btn">Вычислить</a>
 <h2>1.3	Расчет затрат на разработку проекта</h2>
+<p>Капитальные вложения, связанные с автоматизацией обработки информации, рассчитываются по формуле</p>
+<p>K=Кп+Кр ,</p>
+<p>Суммарные затраты на проектирование системы и ее разработку, и отладку на компьютере определяются по формуле</p>
+<p>КП = ((1 + Wd )(1 + Wc ) + Wн )Cумм(Зоi + CM + Mв) ,</p>
+<p>Капитальные вложения на реализацию проекта:</p>
+<p>Кр = Ко + Кдд + Кпп + Ксв + Киб + Кпк ,</p>
 <h3>Таблица 1.4 – Основная заработная плата разработчиков</h3>
 <table class="pay">
     <tr>
@@ -684,8 +699,8 @@
         <th>Сумма, грн.</th>
     </tr>
     <tr class="matherial-copy">
-        <td><input type="text"></td>
-        <td><input type="text"></td>
+        <td><input type="text" class="matherial-name"></td>
+        <td><input type="text" class="matherial-pieces"></td>
         <td><input type="text" class="matherial-amount"></td>
         <td><input type="text" class="matherial-price"></td>
         <td class="matherial-sum"></td>
@@ -734,6 +749,7 @@
     </tr>
 </table>
 <a class="z-btn">Вычислить</a>
+<h3>Таблица 1.6.1 – Затраты на реализацию</h3>
 <table class="spends">
     <tr>
         <th >Название</th>
@@ -743,7 +759,7 @@
         <th>Uк - частота (периодичность) решения к-й задачи, дней /год </th>
     </tr>
     <tr class="spends-copy">
-        <td><input type="text"></td>
+        <td><input type="text" class="spends-name"></td>
         <td><input type="text" class="spends-cost"></td>
         <td><input type="text" class="spends-effective"></td>
         <td><input type="text" class="spends-hardwork"></td>
@@ -759,7 +775,8 @@
 <a class="spends-btn">Вычислить</a>
 
 <h2>Капитальные вложения, связанные с автоматизацией обработки информации</h2>
-<h3 class="capSum"> </h3>
+<p>K=
+<h3 class="capSum"> </h3></p>
 <a class="cap-btn">Вычислить</a>
 <div class="spends-analog">
     <h2>Суммарные затраты, связанные с внедрением аналога складываются изследующих затрат:</h2>
@@ -770,6 +787,11 @@
 <a class="spendsanalog-btn">Вычислить</a>
 </div>
 <h2>1.4	Расчет эксплуатационных затрат</h2>
+<p>Текущие затраты рассчитываются по формуле</p>
+<p>Зтек = ЗзП + Са + Зэ + Срем + Зм + Зн ,</p>
+<p>Затраты на заработную плату основную и дополнительную с отчислениями на социальные нужды производственного персонала рассчитываются по формуле</p>
+<p>Сзп = SUM(ti*Зi*(1 + Wd )(1 + Wc )),</p>
+
 Таблица 1.7 – Данные по заработной плате специалистов (для проекта)
 <table class="exp">
     <tr>
@@ -780,7 +802,7 @@
         <th>Фонд заработной платы, грн.</th>
     </tr>
     <tr class="exp-copy">
-        <td><input type="text"></td>
+        <td><input type="text" class="exp-name"></td>
         <td><input type="text" class="exp-oklad"></td>
         <td class="exp-avgday"></td>
         <td><input type="text" class="exp-timeepxend"></td>
@@ -803,7 +825,7 @@
         <th>Фонд заработной платы, грн.</th>
     </tr>
     <tr class="exp-copy">
-        <td><input type="text"></td>
+        <td><input type="text" class="expanalog-name"></td>
         <td><input type="text" class="expanalog-oklad"></td>
         <td class="expanalog-avgday"></td>
         <td><input type="text" class="expanalog-timeepxend"></td>
@@ -817,6 +839,9 @@
 <p><a class="addInputExpAnalog">Добавить поле</a></p>
 <a class="expalanog-btn">Вычислить</a>
 <h3>Сумма амортизационных отчислений </h3>
+Сумма амортизационных отчислений рассчитывается следующим образом:
+C
+
 <table class="depreciation">
     <tr>
         <th>Название</th>
@@ -827,7 +852,7 @@
         <th>gj – коэффициент использования установленной мощности оборудования;</th>
     </tr>
     <tr class="depreciation-copy">
-        <td><input type="text"></td>
+        <td><input type="text" class="depreciation-name"></td>
         <td><input type="text" class="depreciation-cost"></td>
         <td><input type="text" class="depreciation-norm"></td>
         <td><input type="text" class="depreciation-amount"></td>
@@ -891,35 +916,36 @@
     </tr>
 </table>
 <h2>1.5	Расчет показателей экономической эффективности</h2>
-<h3>Таблица 1.10 – Экономический эффект</h3>
-<table class="econ-effect">
-    <tr>
-        <th rowspan="2">Характеристика</th>
-        <th colspan="2">Значение</th>
-    </tr>
-    <tr>
-        <td>Продукт-аналог</td>
-        <td>Разрабатываемый продукт</td>
-    </tr>
-    <tr>
-        <td>Себестоимость (текущие эксплуатационные затраты), грн.</td>
-        <td class="econanalog-cost"></td>
-        <td class="econ-cost"></td>
-    </tr>
-    <tr>
-        <td>Приведенные затраты на единицу работ, грн.</td>
-        <td class="econanalog-work"></td>
-        <td class="econ-work"></td>
-    </tr>
-    <tr>
-        <td>Экономический эффект от использования разрабатываемой системы, грн.</td>
-        <td class="econ-sum" colspan="2"></td>
-    </tr>
-</table>
+    <h3>Таблица 1.10 – Экономический эффект</h3>
+    <table class="econ-effect">
+        <tr>
+            <th rowspan="2">Характеристика</th>
+            <th colspan="2">Значение</th>
+        </tr>
+        <tr>
+            <td>Продукт-аналог</td>
+            <td>Разрабатываемый продукт</td>
+        </tr>
+        <tr>
+            <td>Себестоимость (текущие эксплуатационные затраты), грн.</td>
+            <td class="econanalog-cost"></td>
+            <td class="econ-cost"></td>
+        </tr>
+        <tr>
+            <td>Приведенные затраты на единицу работ, грн.</td>
+            <td class="econanalog-work"></td>
+            <td class="econ-work"></td>
+        </tr>
+        <tr>
+            <td>Экономический эффект от использования разрабатываемой системы, грн.</td>
+            <td class="econ-sum" colspan="2"></td>
+        </tr>
+    </table>
+
 <div class="econ-result"></div>
 <a class="econ-btn">Вычислить</a>
 <h2>Таблица 1.11 – Результаты экономического обоснования проекта</h2>
-<table class="result">
+<table class="result" id="customers">
     <tr>
         <th>Характеристика проекта</th>
         <th>Значение</th>
@@ -945,8 +971,21 @@
         <td class="years"></td>
     </tr>
 </table>
-<a href="">Рассчитать</a>
+</div>
+<h3>Вывод: Изучил структуру технико-экономического обоснования эффективности проекта по разработке автоматизированной информационной системы на основе сравнения с аналогом и автоматизировал процесс расчета ТЭО.</h3>
+
+<a class="word-export" href="javascript:void(0)">Экспортировать</a>
+
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/scripts.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+<script type="text/javascript" src="js/jquery.wordexport.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $("a.word-export").click(function(event) {
+            $("#page-content").wordExport();
+        });
+    });
+</script>
 </html>
