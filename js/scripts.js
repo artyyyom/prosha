@@ -393,7 +393,6 @@ function sumSoc() {
     var additPay = $('.z-additpay').html();
 
     var sum = ((parseFloat(basePay) + parseFloat(additPay)) * 0.302).toFixed(2);
-    alert(sum);
 
     $('.z-soc').html(sum);
 }
